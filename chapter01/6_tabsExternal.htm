@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<script src="http://code.angularjs.org/1.3.8/angular.min.js"></script>
+	<script src="js/tabsExternal.js"></script>
+	<title>Simple tab with Directive</title>
+	<style>
+		.tabs-nav {
+		padding: 20px 0 0;
+		list-style: none;
+		}
+		.tabs-nav li {
+		.tabs-nav a {
+		display:inline-block;
+		cursor: pointer;
+		}
+		.tabs-nav .active {
+		color: red;
+		}
+		.tab-content {
+		border: 1px solid #ddd;
+		padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p> ngTabs not found... so require is not working at all... </p>
+	<div ng-app='simpleTabDirective'>
+		<ng-tabs>
+			<content-tab dat-heading='First tab' dat-tab-active>
+				<h1>First Tab</h1>
+				<p>Simple tab 1</p>
+			</content-tab>
+			<content-tab dat-heading='Second tab'>
+				<h1>Second Tab</h1>
+				<p>Simple tab 2</p>
+			</content-tab>
+			<content-tab dat-heading='Third tab'>
+				<h1>Third Tab</h1>
+				<p>Simple tab 3</p>
+			</content-tab>
+		</ng-tabs>
+	</div>
+</body>
+</html>

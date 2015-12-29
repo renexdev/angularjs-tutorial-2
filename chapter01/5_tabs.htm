@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="simpleTabController">
+<head>
+	<script src="http://code.angularjs.org/1.3.8/angular.min.js"></script>
+	<script src="js/tabs.js"></script>
+	<title>Simple tab with Controller</title>
+	<style>
+		.tabs-nav {
+			padding: 20px 0 0;
+			list-style: none;
+		}
+		.tabs-nav li {
+			display: inline;
+			margin-right: 20px;
+			}
+		.tabs-nav a {
+			display:inline-block;
+			cursor: pointer;
+		}
+		.tabs-nav .active {
+			color: red;
+		}
+		.tab-content {
+			border: 1px solid #ddd;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="tabs-holder" ng-app="simpleTabController">
+		<div id="tabs" ng-controller="TabsCtrl">
+			<ul class="tabs-nav">
+				<li ng-repeat="tab in tabs"
+				ng-class="{active:isActiveTab(tab.url)}"
+				ng-click="onClickTab(tab)">{{tab.title}}</li>
+			</ul>
+			<div id="tab-content">
+				<div ng-include="currentTab"></div>
+			</div>
+			<!--Script templates-->
+			<script type="text/ng-template" id="first.html">
+				<div class="tab-content" id="1">
+					<h1>First Tab</h1>
+					<p>Simple tab 1</p>
+				</div>
+				</script>
+			<script type="text/ng-template" id="second.html">
+				<div class="tab-content" id="2">
+					<h1>Second Tab</h1>
+					<p>Simple tab 2</p>
+					</div>
+			</script>
+			<script type="text/ng-template" id="third.html">
+				<div class="tab-content" id="3">
+					<h1>Third Tab</h1>
+					<p>Simple tab 3</p>
+				</div>
+				</script>
+			</div>
+		</div>
+</body>
+</html>
