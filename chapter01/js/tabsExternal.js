@@ -1,5 +1,4 @@
 var app = angular.module("simpleTabDirective", [])
-
 app.directive('ngTabs', function() {
 	return {
 		scope: true,
@@ -28,18 +27,19 @@ app.directive('ngTabs', function() {
 		}
 	}
 })
-
 app.directive('contentTab', function() {
 	return {
-		//require: '^ngTabs',
-		require: 'ngTabs',
+		//http://stackoverflow.com/questions/14915332/what-does-require-of-directive-definition-object-take
+		require: '^ngTabs',
 		restrict: 'E',
 		transclude: true,
 		replace: true,
 		scope: true,
 		template: '<div class="tab-content" ng-show="showTab()" ng-transclude></div>',
 		link: function(scope, element, attrs, ngTabs) {
+			//alert(ngTabs.tabs);
 			var tabId = ngTabs.tabs.length;
+			//alert(tabId);
 			scope.showTab = function() {
 				return tabId == ngTabs.currentTab;
 			};
